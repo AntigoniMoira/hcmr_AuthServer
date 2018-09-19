@@ -1,0 +1,7 @@
+# ignore the pyc files since they are compiled when the server starts
+*.pyc
+__pycache__
+# ignore the sqlite databases
+*.sqlite3
+# ingore vscode folder
+.vscode
