@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dh_q^^mw#^euh*0l_zmna#e=ml-f#mmzf&is3u-d6#pzv6#32h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -102,21 +101,6 @@ WSGI_APPLICATION = 'hcmr_AuthServer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'OPTIONS': {
-            'options': '-c search_path=django,public'
-        },
-        'NAME': 'restportal',
-        'USER': 'postgres',
-        'PASSWORD': 'p@l!k@r!',
-        'HOST': '10.6.1.99',
-        'PORT': '5432'
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -137,7 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 # sendgrid key here
-SENDGRID_API_KEY = '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'
 SENDGRID_SANDBOX_MODE_IN_DEBUG = False
 
 # Internationalization
