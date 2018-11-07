@@ -13,7 +13,6 @@ class Ajax {
 				url: uri,
 				type: 'GET',
 				beforeSend: function () {
-					console.log('here is get');
 					$('#loader').show();
 				},
 				dataType: 'json',
