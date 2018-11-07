@@ -19,6 +19,7 @@ from .serializers import (
     UserLoginSerializer,
 )
 from .models import UserProfile
+from django.conf import settings
 
 
 class TermsAndConditions(APIView):
@@ -64,10 +65,11 @@ class UserCreateAPIView(generics.CreateAPIView):
         serializer = UserCreateSerializer(data=data)
         if serializer.is_valid(raise_exception=False):
             new_data = serializer.data
+            url = settings.SERVICES_DOMAIN + '/webapp/home/'
             serializer.create(serializer.data)
             subject = '[HCMR] Activate User'
             name = new_data['firstname'] + ' ' + new_data['lastname']
-            html_content = render_to_string('authentication/activate_user_mail.html', {'name': name, 'country': new_data['country'],
+            html_content = render_to_string('authentication/activate_user_mail.html', {'url': url, 'name': name, 'country': new_data['country'],
                                                                                        'institution': new_data['institution'], 'email': new_data['email'], 'description': new_data['description']})
             # protect against header injection by forbidding newlines in header values
             try:
@@ -103,10 +105,22 @@ class ActivateUser(generics.RetrieveUpdateAPIView):
         Return a list of all the inactive users.
         """
         users = User.objects.filter(is_active=False)
-        data = []
+        data1 = []
         for user in users:
             profile = UserProfile.objects.get(user=user)
-            data.append({'first_name': user.first_name,
+            data1.append({'first_name': user.first_name,
+                         'last_name': user.last_name,
+                         'country': profile.country,
+                         'institution': profile.institution,
+                         'email': user.email,
+                         'phone': profile.userPhone,
+                         'description': profile.description
+                         })
+        users = User.objects.filter(is_active=True)
+        data2 = []
+        for user in users:
+            profile = UserProfile.objects.get(user=user)
+            data2.append({'first_name': user.first_name,
                          'last_name': user.last_name,
                          'country': profile.country,
                          'institution': profile.institution,
@@ -115,7 +129,8 @@ class ActivateUser(generics.RetrieveUpdateAPIView):
                          'description': profile.description
                          })
         return_data = {
-            'data': data
+            'inactive': data1,
+            'active' : data2
         }
         return Response(return_data)
 
@@ -129,8 +144,9 @@ class ActivateUser(generics.RetrieveUpdateAPIView):
         user.save()
         subject = '[HCMR] Account Activation'
         name = user.first_name
+        url = settings.SERVICES_DOMAIN + '/webapp/home/'
         html_content = render_to_string(
-            'authentication/accept_user_mail.html', {'name': name})
+            'authentication/accept_user_mail.html', {'url': url, 'name': name})
         try:
             send_mail(subject, name, 'antmoira@gmail.com', [
                 email], fail_silently=False, html_message=html_content,)
@@ -260,8 +276,9 @@ class ForgotPassword(APIView):
                 return Response(return_data)
             subject = '[HCMR] New Password'
             message = newpassword
+            url = settings.SERVICES_DOMAIN + '/webapp/home/'
             html_content = render_to_string(
-                'authentication/newpassword_mail.html', {'password': message})
+                'authentication/newpassword_mail.html', {'url': url, 'password': message})
             try:
                 send_mail(subject, message, 'antmoira@gmail.com', [
                           email], fail_silently=False, html_message=html_content,)
@@ -329,7 +346,8 @@ class UserDetails(generics.RetrieveUpdateAPIView):
             return Response(return_data)
         user_profile.userPhone = data['phone']
         user_profile.gender = data['gender']
-        user_profile.birthDate = data['bday']
+        if data['bday'] != '' :
+            user_profile.birthDate = data['bday']
         user_profile.country = data['country']
         user_profile.institution = data['institution']
         user_profile.description = data['description']

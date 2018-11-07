@@ -12,12 +12,18 @@ class Ajax {
 			$.ajax({
 				url: uri,
 				type: 'GET',
+				beforeSend: function () {
+					console.log('here is get');
+					$('#loader').show();
+				},
 				dataType: 'json',
 				data: data,
 				contentType: 'application/json'
 			}).done((responseData) => {
+				$('#loader').hide();
 				resolve(responseData);
 			}).fail((error) => {
+				$('#loader').hide();
 				reject({
 					status: error.status,
 					statusText: error.statusText
@@ -35,12 +41,15 @@ class Ajax {
 				data: data,
 				contentType: 'application/json',
 				beforeSend: (xhr) => {
+					$('#loader').show();
 					xhr.setRequestHeader('X-CSRFToken', this.csrfToken);
 					xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				}
 			}).done((responseData) => {
+				$('#loader').hide();
 				resolve(responseData);
 			}).fail((error) => {
+				$('#loader').hide();
 				reject({
 					status: error.status,
 					statusText: error.statusText
@@ -58,12 +67,15 @@ class Ajax {
 				data: data,
 				contentType: 'application/json',
 				beforeSend: (xhr) => {
+					$('#loader').show();
 					xhr.setRequestHeader('X-CSRFToken', this.csrfToken);
 					xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				}
 			}).done((responseData) => {
+				$('#loader').hide();
 				resolve(responseData);
 			}).fail((error) => {
+				$('#loader').hide();
 				reject({
 					status: error.status,
 					statusText: error.statusText
@@ -81,12 +93,15 @@ class Ajax {
 				data: data,
 				contentType: 'application/json',
 				beforeSend: (xhr) => {
+					$('#loader').show();
 					xhr.setRequestHeader('X-CSRFToken', this.csrfToken);
 					xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				}
 			}).done((responseData) => {
+				$('#loader').hide();
 				resolve(responseData);
 			}).fail((error) => {
+				$('#loader').hide();
 				reject({
 					status: error.status,
 					statusText: error.statusText

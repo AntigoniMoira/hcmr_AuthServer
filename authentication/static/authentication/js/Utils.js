@@ -27,11 +27,13 @@ class Utils {
     }
 
     showmsg(id, error_message) {
-        $(id).html("<h4>*" + error_message + "</h4>");
+        $(id).html("*" + error_message + "");
+        $(id).show();
     }
   
     hidemsg(id) {
             $(id).html("");
+            $(id).hide();
     }
 }
 export default Utils
