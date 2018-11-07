@@ -34,6 +34,8 @@ const loginValidation = function () {
     $('.form-reset-psw').submit(function (e) {
         // catch the form's submit event
         e.preventDefault();
+        utils.hidemsg('#reset-psw-success-message');
+        utils.hidemsg('#reset-psw-fail-message');
         var data = {
             email: $('#reser-psw-email').val()
         };

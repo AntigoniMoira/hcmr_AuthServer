@@ -90,28 +90,47 @@ body {
   border-top-right-radius: 0;
 }
 
-.fail-message{
-  color: red;
-}
-
-.success-message{
-  color: green;
-}
-
 /****** signup.html END ******/
 
-/****** index.html START ******/
+/****** loader START ******/
 
-.introduction-header {
-	max-width: 700px;
+#loader {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+  display: none;
+}
+
+#loader::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 48%;
+  top: 40%;
+  width: 40px;
+  height: 40px;
+  border-style: solid;
+  border-color: #5bc0de;
+  border-top-color: transparent;
+  border-width: 4px;
+  border-radius: 50%;
+  -webkit-animation: spin .8s linear infinite;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-.border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
 
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }  
-
-.row.fix {
-	display: flex;
-	flex-wrap: wrap;
+  100% {
+    transform: rotate(360deg);
   }
-/****** index.html END ******/
+}
+
+/****** loader END ******/

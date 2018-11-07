@@ -16,7 +16,7 @@
         <div class="checkbox mb-3">
             <a data-target="#forgot-password" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#forgot-password">Forgot your password?</a>
         </div>
-        <div class="fail-message" id="login-fail-message"></div>
+        <div class="alert alert-danger" id="login-fail-message"></div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <input type="hidden" name="next" value="{{ next }}">
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
@@ -55,8 +55,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="d-flex fail-message" id="reset-psw-fail-message"></div>
-                <div class="success-message d-flex" id="reset-psw-success-message"></div>
+                <div class="alert alert-danger" id="reset-psw-fail-message"></div>
+                <div class="alert alert-success" id="reset-psw-success-message"></div>
             </div>
         </div>
         <!--modal-content-->

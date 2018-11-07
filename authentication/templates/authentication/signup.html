@@ -24,18 +24,18 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputCountry" class="sr-only">Country</label>
-                <input type="text" id="inputCountry" class="form-control" placeholder="Country (*)" required
+                <input type="text" id="inputCountry" class="form-control" maxlength="50" placeholder="Country (*)" required
                     oninvalid="this.setCustomValidity('Please Enter a Country')" oninput="setCustomValidity('')">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputInstitution" class="sr-only">Institution </label>
-                <input type="text" id="inputInstitution" class="form-control" placeholder="Institution">
+                <input type="text" id="inputInstitution" class="form-control" maxlength="100" placeholder="Institution">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputPhone" class="sr-only">Phone Number</label>
-                <input type="text" id="inputPhone" class="form-control" placeholder="Phone (*)" required
+                <input type="text" id="inputPhone" class="form-control" maxlength="30" placeholder="Phone (*)" required
                     oninvalid="this.setCustomValidity('Please Enter your Phone Number')" oninput="setCustomValidity('')">
             </div>
             <div class="form-group col-md-6">
@@ -59,7 +59,7 @@
         <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="inputDescription" class="sr-only">Description</label>
-                    <textarea id="inputDescription" class="form-control" rows="5" placeholder="Specify your main objective with the Poseidon Services (*)"  required
+                    <textarea id="inputDescription" class="form-control" rows="5" maxlength="500" placeholder="Specify your main objective with the Poseidon Services (*)"  required
                     oninvalid="this.setCustomValidity('Please fill this field')" oninput="setCustomValidity('')"></textarea>
                 </div>
         </div>
@@ -67,11 +67,11 @@
         <label>
             <input type="checkbox" value="terms"  required
                 oninvalid="this.setCustomValidity('Please check this box.')" oninput="setCustomValidity('')"> 
-                I agree to the <a href='/authentication/termsandconditions' class='default-link' target="_blank">Terms & Conditions </a> </input>
+                I agree to the <a href="{% url 'termsandconditions' %}" class='default-link' target="_blank">Terms & Conditions </a> </input>
         </label>
         </div>
-        <div class="fail-message" id="signup-fail-message"></div>
-        <div class="success-message"id="signup-success-message"></div>
+        <div class="alert alert-danger" id="signup-fail-message"></div>
+        <div class="alert alert-success" id="signup-success-message"></div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
     </form>
