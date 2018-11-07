@@ -17,7 +17,7 @@ const signupValidation = function () {
         // catch the form's submit event
         e.preventDefault();
         utils.hidemsg('#signup-fail-message');
-        $('#signup-success-message').html("");
+        utils.hidemsg('#signup-success-message');
 
         if (!(utils.validate_email($('#inputEmail').val()))) {
          utils.showmsg('#signup-fail-message', "This is not a valid email address.");
