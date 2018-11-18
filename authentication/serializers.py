@@ -9,9 +9,9 @@ class UserCreateSerializer(serializers.ModelSerializer):
     """
     firstname = serializers.CharField(allow_blank=False)
     lastname = serializers.CharField(allow_blank=False)
-    country = serializers.CharField(allow_blank=False)
+    country = serializers.CharField(allow_blank=True)
     institution = serializers.CharField(allow_blank=True)
-    phone = serializers.CharField(allow_blank=False)
+    phone = serializers.CharField(allow_blank=True)
     email = serializers.EmailField(label='Email Address')
     password2 = serializers.CharField(allow_blank=False)
     description = serializers.CharField(allow_blank=False)
