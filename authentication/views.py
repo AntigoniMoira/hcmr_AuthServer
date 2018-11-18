@@ -73,7 +73,7 @@ class UserCreateAPIView(generics.CreateAPIView):
                                                                                        'institution': new_data['institution'], 'email': new_data['email'], 'description': new_data['description']})
             # protect against header injection by forbidding newlines in header values
             try:
-                send_mail(subject, name, 'antmoira@gmail.com', [
+                send_mail(subject, name, 'poseidon@hcmr.gr', [
                         'antmoira@gmail.com'], fail_silently=False, html_message=html_content,)
             except BadHeaderError:
                 return Response('Invalid header found.')
@@ -148,7 +148,7 @@ class ActivateUser(generics.RetrieveUpdateAPIView):
         html_content = render_to_string(
             'authentication/accept_user_mail.html', {'url': url, 'name': name})
         try:
-            send_mail(subject, name, 'antmoira@gmail.com', [
+            send_mail(subject, name, 'poseidon@hcmr.gr', [
                 email], fail_silently=False, html_message=html_content,)
         except BadHeaderError:
             return_data = {'success': False,
@@ -183,7 +183,7 @@ class DeleteUser(generics.DestroyAPIView):
         html_content = render_to_string(
             'authentication/reject_user_mail.html', {'name': name, 'reason': reason})
         try:
-            send_mail(subject, name, 'antmoira@gmail.com', [
+            send_mail(subject, name, 'poseidon@hcmr.gr', [
                 email], fail_silently=False, html_message=html_content,)
         except BadHeaderError:
             return_data = {'success': False,
@@ -280,7 +280,7 @@ class ForgotPassword(APIView):
             html_content = render_to_string(
                 'authentication/newpassword_mail.html', {'url': url, 'password': message})
             try:
-                send_mail(subject, message, 'antmoira@gmail.com', [
+                send_mail(subject, message, 'poseidon@hcmr.gr', [
                           email], fail_silently=False, html_message=html_content,)
             except BadHeaderError:
                 return_data = {
