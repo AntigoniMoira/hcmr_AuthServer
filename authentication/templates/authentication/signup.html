@@ -24,19 +24,20 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputCountry" class="sr-only">Country</label>
-                <input type="text" id="inputCountry" class="form-control" maxlength="50" placeholder="Country (*)" required
+                <input type="text" id="inputCountry" class="form-control" maxlength="50" placeholder="Country"
                     oninvalid="this.setCustomValidity('Please Enter a Country')" oninput="setCustomValidity('')">
+                <!--<select class="selectpicker countrypicker" data-flag="true" data-default="DE" ></select>-->
             </div>
             <div class="form-group col-md-6">
-                <label for="inputInstitution" class="sr-only">Institution </label>
-                <input type="text" id="inputInstitution" class="form-control" maxlength="100" placeholder="Institution">
+                <label for="inputPhone" class="sr-only">Phone Number</label>
+                <input type="text" id="inputPhone" class="form-control" maxlength="30" placeholder="Phone"
+                    oninvalid="this.setCustomValidity('Please Enter your Phone Number')" oninput="setCustomValidity('')">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputPhone" class="sr-only">Phone Number</label>
-                <input type="text" id="inputPhone" class="form-control" maxlength="30" placeholder="Phone (*)" required
-                    oninvalid="this.setCustomValidity('Please Enter your Phone Number')" oninput="setCustomValidity('')">
+                <label for="inputInstitution" class="sr-only">Institution </label>
+                <input type="text" id="inputInstitution" class="form-control" maxlength="100" placeholder="Institution">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputEmail" class="sr-only">Email address</label>
@@ -71,10 +72,10 @@
         </label>
         </div>
         <div class="alert alert-danger" id="signup-fail-message"></div>
-        <div class="alert alert-success" id="signup-success-message"></div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
     </form>
+    <div class="alert alert-success" id="signup-success-message"></div>
 </div>
 
 

@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     Otan diagrafei enas Auth User diagrafetai to UserProfile alla oxi to antistrofo
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    userPhone = models.CharField(max_length=30)
+    userPhone = models.CharField(max_length=30, default='None')
     birthDate = models.DateField(auto_now=False, auto_now_add=False, null=True)
     GENDER_CHOICES = (
         ('M', 'Male'),
