@@ -38,17 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dot_restrict_scopes',
     'oauth2_provider',
     'rest_framework',
     'corsheaders',
 ]
 
 OAUTH2_PROVIDER = {
+    'SCOPES_BACKEND_CLASS': 'dot_restrict_scopes.scopes.RestrictApplicationScopes',
     'ACCESS_TOKEN_EXPIRE_SECONDS': 60 * 15,
     'REFRESH_TOKEN_EXPIRE_SECONDS': 60 * 60 * 24 * 7,
     'ROTATE_REFRESH_TOKEN': False,
     # this is the list of available scopes
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'introspection': 'Introspect token scope', 'user': 'User of HCMR', 'staff': 'Employee of HCMR', 'admin': 'Admin User'},
+}
+
+OAUTH2_PROVIDER_APPLICATION_MODEL = 'dot_restrict_scopes.RestrictedApplication'
+
+DOT_RESTRICT_SCOPES = {
+    'WRAPPED_SCOPES_BACKEND_CLASS': 'oauth2_provider.scopes.SettingsScopes',
 }
 
 REST_FRAMEWORK = {
