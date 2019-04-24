@@ -7,13 +7,13 @@ body {
 /****** login.html START ******/
 
 .signin-body {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: center;
-	align-items: center;
-	padding-top: 40px;
-	padding-bottom: 40px;
-  }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 
 .form-signin {
   width: 100%;
@@ -22,9 +22,11 @@ body {
   margin: auto;
   text-align: center;
 }
+
 .form-signin .checkbox {
   font-weight: 400;
 }
+
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -32,31 +34,35 @@ body {
   padding: 10px;
   font-size: 16px;
 }
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
+
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 /****** login.html END ******/
 
 /****** signup.html START ******/
 
 .signup-body {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: center;
-	align-items: center;
-	padding-top: 5px;
-	padding-bottom: 5px;
-  }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 .form-signup {
   width: 100%;
@@ -65,9 +71,11 @@ body {
   margin: auto;
   text-align: center;
 }
+
 .form-signup .checkbox {
   font-weight: 400;
 }
+
 .form-signup .form-control {
   position: relative;
   box-sizing: border-box;
@@ -75,6 +83,7 @@ body {
   padding: 10px;
   font-size: 16px;
 }
+
 .form-signup .form-control:focus {
   z-index: 2;
 }
@@ -84,6 +93,7 @@ body {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .form-signup input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
@@ -91,13 +101,15 @@ body {
 }
 
 #signup-success-message {
-  position:fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
-  width:30em;
+  width: 30em;
   /*height:18em;*/
-  margin-top: -9em; /*set to a negative number 1/2 of your height*/
-  margin-left: -15em; /*set to a negative number 1/2 of your width*
+  margin-top: -9em;
+  /*set to a negative number 1/2 of your height*/
+  margin-left: -15em;
+  /*set to a negative number 1/2 of your width*/
 }
 
 /****** signup.html END ******/
