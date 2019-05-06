@@ -106,7 +106,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
         if user_obj:
             if not user_obj.check_password(password):
                 raise serializers.ValidationError(
-                    "Incorect credentials please try again.")
+                    "Incorect password please try again.")
             if user_obj.is_active == False:
                 raise serializers.ValidationError(
                     "Your account has not yet been activated.")
